@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 import numpy as np
 
 # connecting to MongoDB 
-client = MongoClient("mongodb+srv://belajar:belajar@cluster0.isoxsv8.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://belajar:password@cluster0.isoxsv8.mongodb.net/")
 sample_training = client["sample_training"]
 collection_zips= sample_training["zips"]
 
