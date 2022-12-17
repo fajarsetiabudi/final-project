@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: postgres_de
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+    - default_network
+    environment:
+      POSTGRES_PASSWORD: 'admin'
+    volumes:
+      - ./resources:/shared/resources
+
+  mysql:
+    #optional to define version (e.g 5.7)
+    image: mysql:5.7
+    container_name: mysql-de
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db-final'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'user'
+      # You can use wha
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+   
+      # Where our data will be persisted
+    
+    
+    networks:
+    - default_network
+   
+
+
+networks:
+  default_network:
+    name: default_network
